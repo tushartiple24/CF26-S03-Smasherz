@@ -34,3 +34,26 @@ export S03_DB_PASSWORD=your_actual_password
 
 # Initialize database, schema, and seed data
 ./scripts/setup_db.sh
+- **Lane 3:** animates `result.snapshots` and consumes `metrics.for_frontend()` for the analytics UI.
+- **Lane 4:** calls `calculate_metrics(result, scenario.nodes)` using real Lane 2 output.
+
+Each event includes `time`, `node_id`, `previous_state`, `next_state`, `cause`, and optional `source_node_id`.
+
+## Metrics
+
+- `cascade_depth_ticks`: ticks from the first disruption to the last new impact.
+- `dependency_hop_depth`: supplementary causal depth from event provenance.
+- `affected_services`: unique nodes ever degraded/failed, grouped by service type.
+- `recovery_time`: ticks until every affected node is operational, otherwise `not_recovered`.
+- `peak_impact`: most degraded/failed nodes in one immutable snapshot.
+
+```python
+from lane4 import calculate_metrics, get_scenario
+
+scenario = get_scenario("cross-service-cascade")
+result = lane2_engine.run(scenario)  # returns SimulationResult
+analytics = calculate_metrics(result, scenario.nodes).for_frontend()
+```
+
+Run tests with `python -m unittest discover -s tests -v`.
+>>>>>>> origin/Lane4
