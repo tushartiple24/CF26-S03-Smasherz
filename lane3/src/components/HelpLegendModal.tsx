@@ -21,18 +21,18 @@ export const HelpLegendModal: React.FC<HelpLegendModalProps> = ({ isOpen, onClos
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-150">
-      <div className="w-full max-w-2xl bg-[#0A0A0A] border border-[#222] rounded-none shadow-2xl overflow-hidden flex flex-col max-h-[90vh] text-[#E0E0E0]">
+      <div className="w-full max-w-2xl bg-white dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none shadow-2xl overflow-hidden flex flex-col max-h-[90vh] text-black dark:text-[#E0E0E0] transition-colors duration-300">
         {/* Header */}
-        <div className="p-5 border-b border-[#222] flex items-center justify-between">
+        <div className="p-5 border-b border-gray-300 dark:border-[#222] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-white text-black font-black">
+            <div className="p-2 bg-black dark:bg-white text-white dark:text-black font-black">
               <Compass className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-[10px] text-[#666] font-bold uppercase tracking-widest font-mono">
+              <p className="text-[10px] text-gray-500 dark:text-[#666] font-bold uppercase tracking-widest font-mono">
                 OPERATIONAL RUNBOOK // FIELD GUIDE
               </p>
-              <h2 className="text-xl font-black italic uppercase text-white font-display">
+              <h2 className="text-xl font-black italic uppercase text-black dark:text-white font-display">
                 Cascade City Visual Guide & Legend
               </h2>
             </div>
@@ -40,57 +40,57 @@ export const HelpLegendModal: React.FC<HelpLegendModalProps> = ({ isOpen, onClos
 
           <button
             onClick={onClose}
-            className="p-1.5 border border-[#333] hover:border-white hover:bg-white hover:text-black text-[#888] transition-colors"
+            className="p-1.5 border border-gray-300 dark:border-[#333] hover:border-black dark:hover:border-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black text-gray-500 dark:text-[#888] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="p-6 overflow-y-auto flex-1 flex flex-col gap-6 text-xs text-[#AAA] font-mono">
+        <div className="p-6 overflow-y-auto flex-1 flex flex-col gap-6 text-xs text-gray-700 dark:text-[#AAA] font-mono">
           {/* Section 1: Building State Visual Language */}
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-              <p className="text-[10px] text-[#666] font-bold uppercase tracking-widest">
+              <p className="text-[10px] text-gray-500 dark:text-[#666] font-bold uppercase tracking-widest">
                 TELEMETRY MAPPING
               </p>
-              <h3 className="text-base font-black italic uppercase text-white font-display flex items-center gap-2">
+              <h3 className="text-base font-black italic uppercase text-black dark:text-white font-display flex items-center gap-2">
                 <Activity className="w-4 h-4 text-[#00F0FF]" />
                 <span>3-Way Discrete State Representation</span>
               </h3>
             </div>
-            <p className="text-[#888] leading-relaxed uppercase text-[11px]">
-              States in the simulation engine are strictly discrete string values (<span className="text-white font-bold">OPERATIONAL</span>, <span className="text-[#FFC107] font-bold">DEGRADED</span>, <span className="text-[#FF003C] font-bold">FAILED</span>). Visual state is communicated through night-city illumination, glowing roof beacons, and dynamic smoke/spark particles rather than building height.
+            <p className="text-gray-500 dark:text-[#888] leading-relaxed uppercase text-[11px]">
+              States in the simulation engine are strictly discrete string values (<span className="text-black dark:text-white font-bold">OPERATIONAL</span>, <span className="text-[#FFC107] font-bold">DEGRADED</span>, <span className="text-[#FF003C] font-bold">FAILED</span>). Visual state is communicated through night-city illumination, glowing roof beacons, and dynamic smoke/spark particles rather than building height.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-              <div className="p-3.5 bg-[#0D0D0D] border border-[#222] flex flex-col gap-1.5">
-                <div className="flex items-center gap-2 text-white font-bold uppercase">
-                  <span className="w-2.5 h-2.5 bg-white inline-block"></span>
+              <div className="p-3.5 bg-gray-50 dark:bg-[#0D0D0D] border border-gray-300 dark:border-[#222] flex flex-col gap-1.5">
+                <div className="flex items-center gap-2 text-black dark:text-white font-bold uppercase">
+                  <span className="w-2.5 h-2.5 bg-black dark:bg-white inline-block"></span>
                   <span>Operational</span>
                 </div>
-                <div className="text-[10px] text-[#888] leading-relaxed uppercase">
+                <div className="text-[10px] text-gray-500 dark:text-[#888] leading-relaxed uppercase">
                   Windows emit warm/white steady glow, green roof beacon light, nominal energy pulse across outgoing conduits.
                 </div>
               </div>
 
-              <div className="p-3.5 bg-[#141005] border border-[#FFC107]/40 flex flex-col gap-1.5 shadow-[0_0_12px_rgba(255,193,7,0.1)]">
-                <div className="flex items-center gap-2 text-[#FFC107] font-bold uppercase">
+              <div className="p-3.5 bg-yellow-50/50 dark:bg-[#141005] border border-yellow-300 dark:border-[#FFC107]/40 flex flex-col gap-1.5 shadow-[0_0_12px_rgba(255,193,7,0.1)]">
+                <div className="flex items-center gap-2 text-yellow-600 dark:text-[#FFC107] font-bold uppercase">
                   <span className="w-2.5 h-2.5 bg-[#FFC107] inline-block shadow-[0_0_6px_#FFC107]"></span>
                   <span>Degraded</span>
                 </div>
-                <div className="text-[10px] text-[#BBB] leading-relaxed uppercase">
-                  Amber window flicker, strobe amber beacon, rising light smoke haze, reduced conduit energy throughput.
+                <div className="text-[10px] text-yellow-700/80 dark:text-[#E0A800] leading-relaxed uppercase">
+                  Windows begin flickering, yellow warning beacon on roof, nominal capacity drops but continues serving partial load.
                 </div>
               </div>
 
-              <div className="p-3.5 bg-[#180508] border border-[#FF003C]/50 flex flex-col gap-1.5 shadow-[0_0_12px_rgba(255,0,60,0.15)]">
+              <div className="p-3.5 bg-red-50/50 dark:bg-[#180508] border border-red-300 dark:border-[#FF003C]/50 flex flex-col gap-1.5 shadow-[0_0_12px_rgba(255,0,60,0.15)]">
                 <div className="flex items-center gap-2 text-[#FF003C] font-bold uppercase">
                   <span className="w-2.5 h-2.5 bg-[#FF003C] inline-block shadow-[0_0_6px_#FF003C]"></span>
                   <span>Failed</span>
                 </div>
-                <div className="text-[10px] text-[#BBB] leading-relaxed uppercase">
-                  Building dark (unlit windows), intense red rooftop emergency beacon strobe, heavy smoke and sparks, conduit dims/sparks.
+                <div className="text-[10px] text-red-700/80 dark:text-[#FF88A2] leading-relaxed uppercase">
+                  Windows completely dark, red flashing beacon, sparks/smoke particles erupt, downstream services cascade-failed.
                 </div>
               </div>
             </div>
@@ -174,16 +174,15 @@ export const HelpLegendModal: React.FC<HelpLegendModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-[#0A0A0A] border-t border-[#222] flex justify-end font-mono">
+        <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border-t border-gray-300 dark:border-[#222] flex justify-end font-mono">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white hover:bg-[#FF003C] hover:text-white text-black font-black uppercase text-xs transition-colors"
+            className="px-4 py-2 bg-black dark:bg-white hover:bg-[#FF003C] hover:text-white dark:hover:bg-[#FF003C] dark:hover:text-white text-white dark:text-black font-black uppercase text-xs transition-colors"
           >
-            CONFIRM & RETURN TO SIMULATION
+            Acknowledge Runbook
           </button>
         </div>
       </div>
     </div>
   );
 };
-

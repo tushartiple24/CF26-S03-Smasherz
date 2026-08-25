@@ -22,6 +22,7 @@ interface CityCanvasProps {
   selectedNodeId: string | null;
   onSelectNode: (nodeId: string | null) => void;
   onOpenLegend?: () => void;
+  isDarkMode: boolean;
 }
 
 export const CityCanvas: React.FC<CityCanvasProps> = ({
@@ -30,6 +31,7 @@ export const CityCanvas: React.FC<CityCanvasProps> = ({
   selectedNodeId,
   onSelectNode,
   onOpenLegend,
+  isDarkMode,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<CityScene | null>(null);
@@ -125,7 +127,7 @@ export const CityCanvas: React.FC<CityCanvasProps> = ({
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden bg-[#050505] select-none">
+    <div className={`relative w-full h-full min-h-[500px] overflow-hidden select-none ${isDarkMode ? 'bg-[#050505]' : 'bg-slate-100'}`}>
       {/* 3D Canvas Mount Point */}
       <div id="city-viewport-mount" ref={containerRef} className="w-full h-full absolute inset-0" />
 

@@ -78,24 +78,24 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
   };
 
   return (
-    <div className="w-full h-full overflow-y-auto bg-[#050505] text-[#E0E0E0] p-4 sm:p-6 lg:p-8 selection:bg-[#FF003C] selection:text-white">
+    <div className="w-full h-full overflow-y-auto bg-white dark:bg-[#050505] text-black dark:text-[#E0E0E0] p-4 sm:p-6 lg:p-8 selection:bg-[#FF003C] selection:text-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex flex-col gap-6">
         {/* Dashboard Header */}
-        <div className="p-6 bg-[#0A0A0A] border border-[#222] rounded-none shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="p-6 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-2 font-mono">
               <span className="text-[10px] bg-white text-black px-2 py-0.5 font-bold uppercase tracking-wider">
                 SCENARIO // {scenario.id.toUpperCase()}
               </span>
-              <span className="text-[10px] border border-[#333] text-[#888] px-2 py-0.5 uppercase">
+              <span className="text-[10px] border border-gray-300 dark:border-[#333] text-[#666] dark:text-[#888] px-2 py-0.5 uppercase">
                 SEED: {metrics.seed}
               </span>
-              <span className="text-[10px] border border-[#333] text-[#888] px-2 py-0.5 uppercase">
+              <span className="text-[10px] border border-gray-300 dark:border-[#333] text-[#666] dark:text-[#888] px-2 py-0.5 uppercase">
                 GRAPH: {scenario.graph_id}
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-black italic uppercase leading-none text-white font-display tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-black italic uppercase leading-none text-black dark:text-white font-display tracking-tight">
               {scenario.name}
             </h1>
             <p className="text-xs text-[#888] max-w-3xl leading-relaxed font-mono uppercase">
@@ -114,31 +114,31 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         {/* Metrics Grid with Bold Typography */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {/* Cascade Depth */}
-          <div className="p-4 bg-[#0A0A0A] border border-[#222] rounded-none flex flex-col gap-1">
+          <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#666] text-[10px] font-bold uppercase tracking-wider font-mono">
               <span>CASCADE DEPTH</span>
               <Activity className="w-3.5 h-3.5 text-[#00F0FF]" />
             </div>
-            <div className="text-3xl font-black font-mono text-white mt-1">
+            <div className="text-3xl font-black font-mono text-black dark:text-white mt-1">
               {metrics.cascade_depth_ticks} <span className="text-xs font-normal text-[#666]">TICKS</span>
             </div>
             <span className="text-[10px] text-[#666] font-mono uppercase">Propagation duration</span>
           </div>
 
           {/* Dependency Hop Depth */}
-          <div className="p-4 bg-[#0A0A0A] border border-[#222] rounded-none flex flex-col gap-1">
+          <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#666] text-[10px] font-bold uppercase tracking-wider font-mono">
               <span>HOP DEPTH</span>
-              <Layers className="w-3.5 h-3.5 text-white" />
+              <Layers className="w-3.5 h-3.5 text-black dark:text-white" />
             </div>
-            <div className="text-3xl font-black font-mono text-white mt-1">
+            <div className="text-3xl font-black font-mono text-black dark:text-white mt-1">
               {metrics.dependency_hop_depth} <span className="text-xs font-normal text-[#666]">HOPS</span>
             </div>
             <span className="text-[10px] text-[#666] font-mono uppercase">Max dependency chain</span>
           </div>
 
           {/* Peak Impact */}
-          <div className="p-4 bg-[#0A0A0A] border border-[#222] rounded-none flex flex-col gap-1">
+          <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#FF003C] text-[10px] font-bold uppercase tracking-wider font-mono">
               <span>PEAK IMPACT</span>
               <TrendingDown className="w-3.5 h-3.5 text-[#FF003C]" />
@@ -150,7 +150,7 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
           </div>
 
           {/* Total Affected Services */}
-          <div className="p-4 bg-[#0A0A0A] border border-[#222] rounded-none flex flex-col gap-1">
+          <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#FFC107] text-[10px] font-bold uppercase tracking-wider font-mono">
               <span>AFFECTED NODES</span>
               <ShieldAlert className="w-3.5 h-3.5 text-[#FFC107]" />
@@ -162,12 +162,12 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
           </div>
 
           {/* Recovery Time */}
-          <div className="p-4 bg-[#0A0A0A] border border-[#222] rounded-none flex flex-col gap-1">
+          <div className="p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none flex flex-col gap-1">
             <div className="flex items-center justify-between text-[#666] text-[10px] font-bold uppercase tracking-wider font-mono">
               <span>RECOVERY TIME</span>
               <Clock className="w-3.5 h-3.5 text-[#10B981]" />
             </div>
-            <div className="text-3xl font-black font-mono text-white mt-1">
+            <div className="text-3xl font-black font-mono text-black dark:text-white mt-1">
               {metrics.recovery_time.duration_ticks !== null ? (
                 <>
                   {metrics.recovery_time.duration_ticks} <span className="text-xs font-normal text-[#666]">TICKS</span>
@@ -183,12 +183,12 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         </div>
 
         {/* Middle Section: Recharts Bar Chart of Affected Services by Service Type */}
-        <div className="p-6 bg-[#0A0A0A] border border-[#222] rounded-none shadow-xl flex flex-col gap-4">
+        <div className="p-6 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none shadow-xl flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <p className="text-[10px] text-[#666] font-bold uppercase tracking-widest font-mono">
               INFRASTRUCTURE SECTOR BREAKDOWN
             </p>
-            <h3 className="text-xl font-black italic uppercase text-white font-display">
+            <h3 className="text-xl font-black italic uppercase text-black dark:text-white font-display">
               Impact Distribution by Service Type
             </h3>
           </div>
@@ -215,8 +215,8 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="p-3 bg-[#0A0A0A] border border-[#333] text-xs font-mono text-[#E0E0E0] shadow-2xl">
-                          <div className="font-bold text-white mb-1 uppercase">[SECTOR: {data.service_type}]</div>
+                        <div className="p-3 bg-white dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#333] text-xs font-mono text-black dark:text-[#E0E0E0] shadow-2xl">
+                          <div className="font-bold text-black dark:text-white mb-1 uppercase">[SECTOR: {data.service_type}]</div>
                           <div className="text-[#00F0FF] font-bold">IMPACTED NODES: {data.count}</div>
                           <div className="text-[#888] text-[10px] mt-1 max-w-xs uppercase">{data.services}</div>
                         </div>
@@ -239,13 +239,13 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         </div>
 
         {/* Bottom Section: Chronological Event Timeline */}
-        <div className="p-6 bg-[#0A0A0A] border border-[#222] rounded-none shadow-xl flex flex-col gap-4">
-          <div className="flex items-center justify-between border-b border-[#222] pb-3">
+        <div className="p-6 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-300 dark:border-[#222] rounded-none shadow-xl flex flex-col gap-4">
+          <div className="flex items-center justify-between border-b border-gray-300 dark:border-[#222] pb-3">
             <div className="flex flex-col gap-1">
               <p className="text-[10px] text-[#666] font-bold uppercase tracking-widest font-mono">
                 SIMULATION AUDIT LOG
               </p>
-              <h3 className="text-xl font-black italic uppercase text-white font-display">
+              <h3 className="text-xl font-black italic uppercase text-black dark:text-white font-display">
                 Chronological Cascade Timeline
               </h3>
             </div>
@@ -254,19 +254,19 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
 
           <div className="flex flex-col gap-2 font-mono">
             {allEvents.map((evt, idx) => {
+              const nodeObj = scenario.nodes.find((n) => n.id === evt.node_id);
               const isInitiating = evt.category === 'initiating';
               const isRecovery = evt.category === 'recovery';
-              const nodeObj = scenario.nodes.find((n) => n.id === evt.node_id);
 
               return (
                 <div
                   key={`${evt.time}-${evt.node_id}-${idx}`}
                   className={`p-3.5 border flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all ${
-                    isInitiating
-                      ? 'bg-[#180508] border-[#FF003C]/50'
-                      : isRecovery
-                      ? 'bg-[#05180f] border-[#10B981]/50'
-                      : 'bg-[#111] border-[#222] hover:border-[#444]'
+                    evt.next_state === 'failed'
+                      ? 'bg-red-50 dark:bg-[#180508] border-red-200 dark:border-[#FF003C]/50'
+                      : evt.next_state === 'operational'
+                      ? 'bg-green-50 dark:bg-[#05180f] border-green-200 dark:border-[#10B981]/50'
+                      : 'bg-gray-100 dark:bg-[#111] border-gray-300 dark:border-[#222] hover:border-gray-400 dark:hover:border-[#444]'
                   }`}
                 >
                   <div className="flex items-start sm:items-center gap-3">

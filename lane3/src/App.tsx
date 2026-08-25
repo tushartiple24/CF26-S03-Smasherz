@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScenarioRun } from './types';
 import { SAMPLE_SCENARIOS } from './data/sampleScenarios';
 import { HeaderNav } from './components/HeaderNav';
@@ -26,6 +26,15 @@ export default function App() {
   // Modals state
   const [isDataModalOpen, setIsDataModalOpen] = useState(false);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('cascade-city-theme') !== 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    localStorage.setItem('cascade-city-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
   // Active scenario run
   const activeScenarioRun = scenarios[activeScenarioId] || scenarios['cross-service-cascade'];
@@ -64,7 +73,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col w-full h-screen overflow-hidden bg-[#050505] text-[#E0E0E0] font-sans selection:bg-[#FF003C] selection:text-white">
+    <div className="flex flex-col w-full h-screen overflow-hidden bg-white dark:bg-[#050505] text-black dark:text-[#E0E0E0] font-sans selection:bg-[#FF003C] selection:text-white transition-colors duration-300">
       {/* Top Navigation */}
       <HeaderNav
         scenarioList={Object.values(scenarios)}
@@ -74,6 +83,8 @@ export default function App() {
         onSelectTab={setActiveTab}
         onOpenDataModal={() => setIsDataModalOpen(true)}
         onOpenHelpModal={() => setIsHelpModalOpen(true)}
+        isDarkMode={isDarkMode}
+        onToggleTheme={() => setIsDarkMode((isDark) => !isDark)}
       />
 
       {/* Main View Area */}
@@ -88,6 +99,7 @@ export default function App() {
                 selectedNodeId={selectedNodeId}
                 onSelectNode={(nodeId) => setSelectedNodeId(nodeId)}
                 onOpenLegend={() => setIsHelpModalOpen(true)}
+                isDarkMode={isDarkMode}
               />
 
               {/* Node Inspector Drawer */}

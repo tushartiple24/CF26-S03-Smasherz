@@ -264,7 +264,7 @@ export const DataImportModal: React.FC<DataImportModalProps> = ({
             className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold uppercase text-[#888] hover:text-white hover:bg-[#222] transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span>Reset 4 Default Scenarios</span>
+              <span>Reset 6 Default Scenarios</span>
           </button>
 
           <button
