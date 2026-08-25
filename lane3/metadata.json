@@ -1,0 +1,6 @@
+{
+  "name": "Cascade City",
+  "description": "Interactive 3D city visualization and analytics dashboard for an urban infrastructure failure simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
