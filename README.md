@@ -33,7 +33,7 @@ export S03_DB_USER=postgres
 export S03_DB_PASSWORD=your_actual_password
 
 # Initialize database, schema, and seed data
-./scripts/setup_db.sh
+./lane1/scripts/setup_db.sh
 - **Lane 3:** animates `result.snapshots` and consumes `metrics.for_frontend()` for the analytics UI.
 - **Lane 4:** calls `calculate_metrics(result, scenario.nodes)` using real Lane 2 output.
 

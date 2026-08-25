@@ -8,7 +8,7 @@ Test strategy:
 
 All scenarios are built from simple dataclasses that mirror Lane 1's Scenario
 shape (same field names). At Checkpoint B integration, swap the imports for
-Lane 1's actual src/models.py — the engine accepts any object with the right
+Lane 1's actual lane1/models.py — the engine accepts any object with the right
 attribute names.
 """
 import unittest
@@ -23,7 +23,7 @@ from lane2 import run_simulation
 
 
 # ---------------------------------------------------------------------------
-# Minimal Lane 1-compatible fixtures (mirrors src/models.py field names)
+# Minimal Lane 1-compatible fixtures (mirrors lane1/models.py field names)
 # ---------------------------------------------------------------------------
 
 @dataclass

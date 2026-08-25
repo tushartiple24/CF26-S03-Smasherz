@@ -12,7 +12,7 @@ Usage: python3 scripts/self_test.py
 import sys
 import os
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from models import Node, TickState, RecoveryAction, RunLog
 from repository import load_scenario, save_run, load_run
